@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ru.netology.nmedia.R
+import ru.netology.nmedia.countFormat
 import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.dto.Post
 
@@ -36,6 +37,11 @@ class PostViewHolder(
             author.text = post.author
             published.text = post.published
             content.text = post.content
+
+            likeCount.text = countFormat(post.likeCount)
+            shareCount.text = countFormat(post.shareCount)
+            viewsCount.text = countFormat(post.viewsCount)
+
             like.setImageResource(if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.ic_like_24)
             shareCount.text = post.shareCount.toString()
 
